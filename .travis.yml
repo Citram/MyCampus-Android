@@ -1,0 +1,37 @@
+env:
+  global:
+    - ANDROID_API_LEVEL=29
+    - EMULATOR_API_LEVEL=26
+    - ANDROID_BUILD_TOOLS_VERSION=29.0.2
+    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_TAG=google_apis
+    - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default)
+matrix:
+  include:
+    - language: android
+      jdk: oraclejdk8
+      sudo: false
+      android:
+        components:
+          - tools # to get the new `repository-11.xml`
+          - platform-tools
+          - tools # to install Android SDK tools 25.1.x
+          - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+          - android-$ANDROID_API_LEVEL
+          - android-$EMULATOR_API_LEVEL
+          - addon-google_apis-google-$ANDROID_API_LEVEL
+          - addon-google_apis-google-$EMULATOR_API_LEVEL
+          - extra-google-google_play_services
+          - extra-android-support
+          - extra-google-m2repository
+          - extra-android-m2repository
+          - sys-img-armeabi-v7a-google_apis-$ANDROID_API_LEVEL
+          - sys-img-armeabi-v7a-google_apis-$EMULATOR_API_LEVEL
+        licenses:
+          - 'android-sdk-license-.+'
+      before_script:
+        # - echo no | android create avd --force -n test -t "android-"$EMULATOR_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG        - emulator -avd test -no-audio -no-window &
+        # - emulator -avd test -no-skin -no-audio -no-window &
+        # - android-wait-for-emulator
+      script:
+        - ./gradlew test check
