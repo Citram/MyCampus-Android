@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MyCampus</string>
+<string name="app_name">MyCampus</string>
+<string name="username_hint">Username</string>
+<string name="password_hint">Password</string>
+<string name="login">Login</string>
+<string name="login_button">Login</string>
+<string name="no_account">Register if you don\'t have an account</string>
+<string name="register">Create Account</string>
 </resources>
+
