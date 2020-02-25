@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyCampus</string>
+    <string name="log_in">log in</string>
+    <string name="sign_up">sign up</string>
+    <string name="mcgill_background_description">An image of McGill\'s main museum.</string>
+    <string name="welcome_message">The premium socializing platform for students</string>
+    <string name="mycampus">MyCampus</string>
 </resources>
